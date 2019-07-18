@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'dome05.dart';
-import 'dome5_0.dart';
-import 'dome5_1.dart';
-import 'dome5_2.dart';
+import 'package:liupeng_flutter_application/dome/dome05.dart';
+import 'package:liupeng_flutter_application/dome/dome5_0.dart';
+import 'package:liupeng_flutter_application/dome/dome5_1.dart';
+import 'package:liupeng_flutter_application/dome/dome5_2.dart';
 
 void main() {
   runApp(

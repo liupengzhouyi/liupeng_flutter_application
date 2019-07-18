@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-import 'dome02.dart';
+import 'package:liupeng_flutter_application/dome/dome02.dart';
 
 // void main() => runApp(MyApp());
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'dome01.dart';
+import 'package:liupeng_flutter_application/dome/dome01.dart';
 
 class MyScaffold extends StatelessWidget {
 

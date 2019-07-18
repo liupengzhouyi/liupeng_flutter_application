@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'dome5_0.dart';
 
-class ShoppingList extends StatefulWidget {
-
-  ShoppingList({Key key, this.products}) : super(key : key);
-
-  final List<Product> products;
-
-  @override
-  _ShoppingListState createState() => new _ShoppingListState();
-}
-
+import 'package:liupeng_flutter_application/dome/dome5_0.dart';
+import 'package:liupeng_flutter_application/dome/dome5_1.dart';
 
 class _ShoppingListState extends State<ShoppingList> {
 
