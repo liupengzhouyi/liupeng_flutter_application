@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
+// https://blog.csdn.net/qq_18948359/article/details/81409861
+
 // 这里为入口函数
 void main() => runApp(new MyApp());
 
+/**
+ * 被调用的入口函数
+ */
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
