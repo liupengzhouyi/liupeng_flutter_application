@@ -7,11 +7,21 @@ import 'package:liupeng_flutter_application/dome/dome5_2.dart';
 
 void main() {
   runApp(
-      new MaterialApp(
-        title: 'Flutter教程',
-        home: new ShoppingList(products: _kProducts),
-      )
+     new PalyDome05().materialApp,
   );
+}
+
+
+class PalyDome05 {
+
+  MaterialApp materialApp;
+
+  PalyDome05() {
+    this.materialApp = new MaterialApp(
+      home: new ShoppingList(products: _kProducts),
+    );
+  }
+
 }
 
 final List<Product> _kProducts = <Product>[
