@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Photo>> fetchPhotos(http.Client client) async {
-  final response =
-  await client.get('https://jsonplaceholder.typicode.com/photos');
+  final response = await client.get('https://jsonplaceholder.typicode.com/photos');
   return compute(parsePhotos, response.body);
 }
 
@@ -16,7 +15,13 @@ List<Photo> parsePhotos(String responseBody) {
   return parsed.map<Photo>((json) => Photo.fromJson(json)).toList();
 }
 
+/**
+ * 图片类
+ * author： liupeng
+ * date: 2019-07-19
+ */
 class Photo {
+
   final int albumId;
   final int id;
   final String title;
@@ -45,7 +50,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
         title: appTitle,
         theme: new ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.amber,
         ),
         home: MyHomePage(title: appTitle)
     );
@@ -53,10 +58,11 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  // 类成员： 标题
   final String title;
-
+  // 构造函数
   MyHomePage({Key key, this.title}) : super(key: key);
-
+  // 复写build函数
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +72,8 @@ class MyHomePage extends StatelessWidget {
       body: FutureBuilder<List<Photo>>(
         future: fetchPhotos(http.Client()),
         builder: (context, snapshot) {
-          if (snapshot.hasError) print(snapshot.error);
+          if (snapshot.hasError)
+            print(snapshot.error);
           return snapshot.hasData
               ? PhotosList(photos: snapshot.data)
               : Center(child: CircularProgressIndicator());
@@ -76,11 +83,15 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+/**
+ * 一级页面
+ */
 class PhotosList extends StatelessWidget {
+  // 类元素： 图片列表
   final List<Photo> photos;
-
+  // 构造函数
   PhotosList({Key key, this.photos}) : super(key: key);
-
+  // 复写build函数
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -89,10 +100,11 @@ class PhotosList extends StatelessWidget {
         ),
         itemCount: photos.length,
         itemBuilder: (context, index) {
+          print(photos[index].thumbnailUrl);
           return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => DetailPage(photo: photos[index]),
+                  builder: (context) => DetailPage(photo: photos[index])
                 ));
               },
               child: Image.network(photos[index].thumbnailUrl)
@@ -102,20 +114,34 @@ class PhotosList extends StatelessWidget {
   }
 }
 
+/**
+ * 二级页面
+ */
 class DetailPage extends StatelessWidget {
-
+  // 图片
   final Photo photo;
-
+  // 图片
   DetailPage({Key key, this.photo}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // 二级标题
       appBar: AppBar(
         title: Text(photo.title),
       ),
+      //
       body: Center(
-        child: Image.network(photo.url),
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            new Expanded(
+              child:Image.network(photo.url),
+            ),
+            new Expanded(
+              child:Image.network(photo.url),
+            )
+          ],
+        ),
       ),
     );
   }
