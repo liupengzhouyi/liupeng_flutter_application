@@ -13,15 +13,18 @@ enum TabsDemoStyle {
   textOnly
 }
 
+/*
+ * 页面类
+ *  图标
+ *  文本
+ */
 class _Page {
-
-  final IconData icon;
-
-  final String text;
-
   _Page({this.icon, this.text});
+  final IconData icon;
+  final String text;
 }
 
+// 存储所有页面的列表
 final List<_Page> _allPages = <_Page>[
   new _Page(icon: Icons.event, text: 'EVENT'),
   new _Page(icon: Icons.home, text: 'HOME'),
@@ -37,6 +40,7 @@ class ScrollableTabsDemo extends StatefulWidget {
     return new _ScrollableTabsDemoState();
   }
 }
+
 // 继承SingleTickerProviderStateMixin，提供单个Ticker（每个动画帧调用它的回调一次）
 class _ScrollableTabsDemoState extends State<ScrollableTabsDemo> with SingleTickerProviderStateMixin {
   /*
@@ -46,7 +50,6 @@ class _ScrollableTabsDemoState extends State<ScrollableTabsDemo> with SingleTick
    */
   TabController _controller;
   TabsDemoStyle _demoStyle = TabsDemoStyle.iconsAndText;
-
 
   @override
   void initState() {
