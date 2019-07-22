@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -19,7 +18,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 //设置父页
 class FirstView extends StatelessWidget {
@@ -63,9 +61,6 @@ class FirstView extends StatelessWidget {
   }
 }
 
-
-
-
 class SecondView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -98,7 +93,6 @@ class SecondView extends StatelessWidget {
   }
 }
 
-
 //渐变效果
 class CustomRouteJianBian extends PageRouteBuilder{
   final Widget widget;
@@ -126,8 +120,6 @@ class CustomRouteJianBian extends PageRouteBuilder{
       }
   );
 }
-
-
 
 //缩放效果
 class CustomRouteZoom extends PageRouteBuilder{
@@ -158,8 +150,6 @@ class CustomRouteZoom extends PageRouteBuilder{
       }
   );
 }
-
-
 
 //旋转+缩放效果
 class CustomRouteRotateZoom extends PageRouteBuilder{
@@ -199,9 +189,6 @@ class CustomRouteRotateZoom extends PageRouteBuilder{
       }
   );
 }
-
-
-
 
 //滑动效果
 class CustomRouteSlide extends PageRouteBuilder{
