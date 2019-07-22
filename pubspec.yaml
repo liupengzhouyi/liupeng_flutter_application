@@ -23,9 +23,12 @@ dev_dependencies:
 
 
 flutter:
-
   uses-material-design: true
-
   assets:
      - images/image001.jpg
      - assets/config.json
+
+  fonts:
+    - family: aoyagireisyosimo
+      fonts:
+        - asset: fonts/aoyagireisyosimo-ttf-2-01-2.ttf
